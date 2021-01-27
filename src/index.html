@@ -8,11 +8,32 @@
     <script src="utils.js"></script>
   </head>
   <body>
+    <h2>TODO-list!</h2>
     <section id="Control-section">
-      
+      <label for="item">Enter your tasks:</label>
+      <input id="text-input" type="text"/>
+      <select name="priority-selector" id="priority-selector">
+        <option value="">--Please choose an option--</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button id="add-button">ADD</button>
     </section>
     <section id="View-section">
+      <div class="todo-container">
+      <div class="todo-priority">
+        <ul>
 
+        </ul>
+        </div>
+        <div class="todo-created-at">
+        </div>
+        <div class="todo-text">
+        </div>
+      </div>
     </section>
     <script src="main.js"></script>
   </body>
