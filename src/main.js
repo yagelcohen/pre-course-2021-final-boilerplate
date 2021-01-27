@@ -1,12 +1,15 @@
+//query elements and create some...
 const addButton = document.querySelector('button');
 const ViewSection =  document.querySelector('section');
 const input = document.querySelector('input');
 const list = document.querySelector('ul');
 const listItem = document.createElement('li')
 
+//function that add or delete the task and the significance of the task
 function whichTaskToAddOrDelete(textInput){
-    let insideTheInput = input.value;
-    input.value=' '
+    let significance = document.getElementById("priority-selector").value;
+    let insideTheInput =significance + ' ' + input.value;
+    input.value=' ';
     const listItem=document.createElement('li')
     const buttonDelete = document.createElement('button');
     const span=document.createElement('span')
@@ -19,9 +22,11 @@ function whichTaskToAddOrDelete(textInput){
     }
     input.focus();
 }
-
-
+//to order the button that when we click on him do this function.
 addButton.addEventListener('click', whichTaskToAddOrDelete);
-addButton.addEventListener('keypress', whichTaskToAddOrDelete) 
 
- 
+//to order the input that when we keypress on the enter key do this function.
+input.addEventListener('keypress',  (e) => {
+    if (e.key === 'Enter')
+    {whichTaskToAddOrDelete()}
+});
