@@ -7,26 +7,38 @@ const list = document.querySelector('ul');
 let countTasks = 0;
 
 
-//function that add or delete the task and the significance of the task
 function whichTaskToAddOrDeleteAndCountTask(){
-    let significance = document.getElementById("priority-selector").value;
-    let insideTheInput =significance + ' ' + input.value;
-    input.value='';
-    const listItem=document.createElement('li')
+    let significance = " " + document.getElementById("priority-selector").value + " ";
+    const listItem=document.createElement('li');
     const buttonDelete = document.createElement('button');
-    listItem.innerText = insideTheInput;
+    const todoContainer = document.createElement('div');
+    todoContainer.classList.add("todo-container");
+    const todoPriority = document.createElement('div');
+    todoPriority.classList.add("todo-priority");
+    todoPriority.innerText =significance + " ";
+    const todocreatedAt = document.createElement('div');
+    todocreatedAt.classList.add("todo-created-at");
+    todocreatedAt.innerText =  "  " + new Date().toLocaleString()+ "  ";
+    const todoText = document.createElement('div');
+    todoText.classList.add("todo-text");
+    todoText.innerText ="  " + input.value + "  ";
+    todoContainer.append(todoPriority);
+    todoContainer.append(todocreatedAt);
+    todoContainer.append(todoText); 
+    input.value='';
+    listItem.append(todoContainer);
     listItem.append(buttonDelete);
-    buttonDelete.innerText=' done! :)';
     list.append(listItem);
+    buttonDelete.innerText=' done! :)';
     countTasks++;
     document.getElementById('counter').innerHTML = countTasks;
     buttonDelete.onclick = function(e){
-       list.removeChild(listItem)
+        list.removeChild(listItem)
     countTasks--;
     document.getElementById('counter').innerHTML = countTasks;
     }
     input.focus();
-}
+ }
 
 //to order the button that when we click on him do this function.
 addButton.addEventListener('click', whichTaskToAddOrDeleteAndCountTask);
@@ -37,15 +49,18 @@ input.addEventListener('keypress',  (e) => {
     {whichTaskToAddOrDeleteAndCountTask()}
 });
 
+//function that resort the todo list by their to dos priority 
 function sortList (){
-    let  i, switching, ListItem, shouldSwitch;
-    switching = true;
+    let i;
+    let listItem;
+    let shouldSwitch
+    let switching = true;
   while (switching) {
     switching = false;
     listItem = list.getElementsByTagName('li');
     for (i = 0; i < (listItem.length - 1); i++) {
-      shouldSwitch = false;
-      if (listItem[i].innerHTML.toLowerCase()[0] > listItem[i + 1].innerHTML.toLowerCase()[0]) {
+     shouldSwitch = false;
+      if (listItem[i].innerHTML[0] > listItem[i + 1].innerHTML[0]) {
         shouldSwitch = true;
         break;
       }
@@ -57,4 +72,60 @@ function sortList (){
   }
 }
 
-console.log(new Date().toLocaleString());
+
+
+
+//function that add or delete the task and the significance of the task
+// function whichTaskToAddOrDeleteAndCountTask(){
+//     let significance = document.getElementById("priority-selector").value;
+//     let insideTheInput =significance + ' ' +new Date().toLocaleString() + ' ' + input.value;
+//     input.value='';
+//     const listItem=document.createElement('li')
+//     const buttonDelete = document.createElement('button');
+//     listItem.innerText = insideTheInput;
+//     listItem.append(buttonDelete);
+//     buttonDelete.innerText=' done! :)';
+//     list.append(listItem);
+//     countTasks++;
+//     document.getElementById('counter').innerHTML = countTasks;
+//     buttonDelete.onclick = function(e){
+//        list.removeChild(listItem)
+//     countTasks--;
+//     document.getElementById('counter').innerHTML = countTasks;
+//     }
+//     input.focus();
+// }
+
+//function that resort the todo list by their to dos priority 
+// function sortList (){
+//     let i;
+//     let listItem;
+//     let shouldSwitch
+//     let switching = true;
+//   while (switching) {
+//     switching = false;
+//     listItem = list.getElementsByTagName('li');
+//     for (i = 0; i < (listItem.length - 1); i++) {
+//      shouldSwitch = false;
+//       if (listItem[i].innerHTML[0] > listItem[i + 1].innerHTML[0]) {
+//         shouldSwitch = true;
+//         break;
+//       }
+//     }
+//     if (shouldSwitch) {
+//       listItem[i].parentNode.insertBefore(listItem[i + 1], listItem[i]);
+//       switching = true;
+//     }
+//   }
+// }
+
+
+
+
+
+// function whichTaskToAddOrDeleteAndCountTask(){
+//     let insideTheInput =significance + ' ' +new Date().toLocaleString() + ' ' + input.value;
+//     listItem.innerText = insideTheInput;
+   
+//     input.focus();
+// }
