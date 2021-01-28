@@ -10,9 +10,11 @@
   <body>
     <h2>TODO-list!</h2>
     <section id="Control-section">
+      <button onclick="sortList()">Sort</button>
+      <!-- <button onclick="sortList()" id="sort-button">sort</button> -->
       <h4>you have <span id="counter">0</span> tasks</h4>
       <label for="item">Enter your tasks:</label>
-      <input id="text-input" type="text" placeholder="add your task" />
+      <input id="text-input" type="text" placeholder="add your task" required/>
       <select  name="priority-selector" id="priority-selector">
         <option value=" ">--Select the level of significance of the task--</option>
         <option value="1">1</option>
@@ -24,13 +26,13 @@
       <button id="add-button">ADD</button>
     </section>
     <section id="View-section">
-      <div class="todo-container  ">
+      <div class="todo-container">
       <div class="todo-priority">
         </div>
         <div class="todo-created-at">
         </div>
         <div class="todo-text">
-          <ul>
+          <ul id="id01">
           </ul>
         </div>
       </div>

@@ -1,9 +1,9 @@
-//query elements and create some and Defining values..
-const addButton = document.querySelector('button');
+//query elements and Defining values..
+const addButton = document.getElementById('add-button');
+const sortButton = document.getElementById('sort-button');
 const ViewSection =  document.querySelector('section');
 const input = document.querySelector('input');
 const list = document.querySelector('ul');
-const listItem = document.createElement('li')
 let countTasks = 0;
 
 
@@ -14,9 +14,8 @@ function whichTaskToAddOrDeleteAndCountTask(){
     input.value='';
     const listItem=document.createElement('li')
     const buttonDelete = document.createElement('button');
-    const span=document.createElement('span')
-    span.innerText = insideTheInput;
-    listItem.append(span); listItem.append(buttonDelete);
+    listItem.innerText = insideTheInput;
+    listItem.append(buttonDelete);
     buttonDelete.innerText=' done! :)';
     list.append(listItem);
     countTasks++;
@@ -37,3 +36,25 @@ input.addEventListener('keypress',  (e) => {
     if (e.key === 'Enter')
     {whichTaskToAddOrDeleteAndCountTask()}
 });
+
+function sortList (){
+    let  i, switching, ListItem, shouldSwitch;
+    switching = true;
+  while (switching) {
+    switching = false;
+    listItem = list.getElementsByTagName('li');
+    for (i = 0; i < (listItem.length - 1); i++) {
+      shouldSwitch = false;
+      if (listItem[i].innerHTML.toLowerCase()[0] > listItem[i + 1].innerHTML.toLowerCase()[0]) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      listItem[i].parentNode.insertBefore(listItem[i + 1], listItem[i]);
+      switching = true;
+    }
+  }
+}
+
+console.log(new Date().toLocaleString());
