@@ -6,27 +6,30 @@ const input = document.querySelector('input');
 const list = document.querySelector('ul');
 let countTasks = 0;
 
-
 function whichTaskToAddOrDeleteAndCountTask(){
-    let significance = " " + document.getElementById("priority-selector").value + " ";
-    const listItem=document.createElement('li');
+    let significance =document.getElementById("priority-selector").value;
+    const listItem = document.createElement("li");
     const buttonDelete = document.createElement('button');
     const todoContainer = document.createElement('div');
     todoContainer.classList.add("todo-container");
     const todoPriority = document.createElement('div');
     todoPriority.classList.add("todo-priority");
-    todoPriority.innerText =significance + " ";
+    todoPriority.innerText =significance;
     const todocreatedAt = document.createElement('div');
     todocreatedAt.classList.add("todo-created-at");
-    todocreatedAt.innerText =  "  " + new Date().toLocaleString()+ "  ";
+    todocreatedAt.innerText =new Date().toLocaleString();
     const todoText = document.createElement('div');
     todoText.classList.add("todo-text");
-    todoText.innerText ="  " + input.value + "  ";
+    todoText.innerText =input.value;
     todoContainer.append(todoPriority);
+    todoContainer.append(" ");
     todoContainer.append(todocreatedAt);
+    todoContainer.append(" ");
     todoContainer.append(todoText); 
+    todoContainer.append(" ");
     input.value='';
     listItem.append(todoContainer);
+    listItem.append(" " + " ")
     listItem.append(buttonDelete);
     list.append(listItem);
     buttonDelete.innerText=' done! :)';
@@ -57,10 +60,15 @@ function sortList (){
     let switching = true;
   while (switching) {
     switching = false;
-    listItem = list.getElementsByTagName('li');
+    listItem = document.getElementsByTagName('li');
+    console.log(listItem);
     for (i = 0; i < (listItem.length - 1); i++) {
      shouldSwitch = false;
-      if (listItem[i].innerHTML[0] > listItem[i + 1].innerHTML[0]) {
+     console.log(listItem[i].innerText);
+     console.log(listItem[i].value);
+
+      if (listItem[i].innerText[0] < listItem[i + 1].innerText[0]) {
+        console.log(listItem[i].innerHTML[0]);
         shouldSwitch = true;
         break;
       }
@@ -72,8 +80,7 @@ function sortList (){
   }
 }
 
-
-
+//https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 //function that add or delete the task and the significance of the task
 // function whichTaskToAddOrDeleteAndCountTask(){
@@ -89,6 +96,7 @@ function sortList (){
 //     countTasks++;
 //     document.getElementById('counter').innerHTML = countTasks;
 //     buttonDelete.onclick = function(e){
+
 //        list.removeChild(listItem)
 //     countTasks--;
 //     document.getElementById('counter').innerHTML = countTasks;
@@ -119,13 +127,3 @@ function sortList (){
 //   }
 // }
 
-
-
-
-
-// function whichTaskToAddOrDeleteAndCountTask(){
-//     let insideTheInput =significance + ' ' +new Date().toLocaleString() + ' ' + input.value;
-//     listItem.innerText = insideTheInput;
-   
-//     input.focus();
-// }
