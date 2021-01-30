@@ -82,6 +82,59 @@ function sortList (){
 
 //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
+// "use strict"
+
+// const ROOT = "https://api.jsonbin.io/v3/b/";
+// const BIN_ID = "6015beb3014e36492231f1c8";
+
+// const todoArray = [
+//     {
+//         "text": "An example to-do",
+//         "priority": "1",
+//         "date": 1611662776177
+//     },
+//     {
+//         "text": "A second example to-do",
+//         "priority": "4",
+//         "date": 1611661776177
+//     }
+// ];
+
+
+
+// async function get() {
+    
+//     const init = {
+//         method: "GET"
+//     }
+//     const request = new Request(ROOT + BIN_ID + "/latest", init);
+//     const response = await fetch(request);
+//     const body = await response.json();
+//     console.log(response);
+//     console.log(body);
+//     console.log(body.record["my-todo"]);
+// }
+
+// // get();
+
+// async function put(data) {
+    
+//     const sendObject = {
+//         "my-todo": data
+//     };
+
+//     const jsonString = JSON.stringify(sendObject);
+    
+//     const init = {
+//         method: "PUT",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: jsonString
+//     }
+//     const request = new Request(ROOT + BIN_ID, init);
+
+
 //function that add or delete the task and the significance of the task
 // function whichTaskToAddOrDeleteAndCountTask(){
 //     let significance = document.getElementById("priority-selector").value;
