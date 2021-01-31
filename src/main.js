@@ -23,7 +23,6 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
 
 
  function whichTaskToAddOrDeleteAndCountTask(significance,date,Text,id){
-       
   const listItem = document.createElement("li");
   const buttonDelete = document.createElement('button');
   buttonDelete.classList.add("buttonDelete");
@@ -48,25 +47,19 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   listItem.append(todoContainer);
   listItem.append(" " + " ")
   listItem.append(buttonDelete);
-console.log(id);
 listItem.setAttribute("id",id);
-
   list.append(listItem);
   buttonDelete.innerText='x';
-
   countTasks++;
   document.getElementById('counter').innerHTML = countTasks;
-
   buttonDelete.onclick = function(e){
 localStorage.removeItem(keys[listItem.getAttribute('id')]);
       list.removeChild(listItem);
-
 countTasks--;
 document.getElementById('counter').innerHTML = countTasks;
   }
   input.focus();
  }
-
  if (localStorage.length !== 0) {  
   for(let i = 0 ; i < localStorage.length;i++){ 
   Data = localStorage.key(i);
@@ -75,7 +68,6 @@ document.getElementById('counter').innerHTML = countTasks;
   }
   countData = bigInArray(keys);
   }
-
   //to order the button that when we click on him do this function.
   //function that add the information from the user to localStorage and to the TaskManger
   if(document.getElementById("priority-selector").value !== null){
@@ -85,10 +77,8 @@ document.getElementById('counter').innerHTML = countTasks;
   localStorage.setItem(countData, obj);
   whichTaskToAddOrDeleteAndCountTask(significance,new Date().toLocaleString(),input.value,countData);
   countData++;
-  console.log(localStorage);
   };
   }
-
  //to order the input that when we keypress on the enter key do this function.
  if(input){
   input.addEventListener('keypress',  (e) => {
@@ -96,7 +86,6 @@ document.getElementById('counter').innerHTML = countTasks;
   {whichTaskToAddOrDeleteAndCountTask()}
   });
   }
-
 //function that resort the todo list by their to dos priority 
 function sortList (){
     let i;
@@ -106,14 +95,9 @@ function sortList (){
   while (switching) {
     switching = false;
     listItem = document.getElementsByTagName('li');
-    console.log(listItem);
     for (i = 0; i < (listItem.length - 1); i++) {
      shouldSwitch = false;
-     console.log(listItem[i].innerText);
-     console.log(listItem[i].value);
-
       if (listItem[i].innerText[0] < listItem[i + 1].innerText[0]) {
-        console.log(listItem[i].innerHTML[0]);
         shouldSwitch = true;
         break;
       }
@@ -129,8 +113,3 @@ function sortList (){
 //to order the button that when we click on him do this function.
 // addButton.addEventListener('click', whichTaskToAddOrDeleteAndCountTask);
 
-//to order the input that when we keypress on the enter key do this function.
-// input.addEventListener('keypress',  (e) => {
-//     if (e.key === 'Enter')
-//     {whichTaskToAddOrDeleteAndCountTask()}
-// });
