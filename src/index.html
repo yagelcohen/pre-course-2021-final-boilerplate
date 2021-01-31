@@ -8,29 +8,30 @@
     <script src="utils.js"></script>
   </head>
   <body>
-    <h2>TODO-list!</h2>
+    <h1>TODO-list!</h1>
     <section id="Control-section">
-      <button onclick="sortList()" id="sort-button">sort</button>
       <h4>you have <span id="counter">0</span> tasks</h4>
-      <label for="item">Enter your tasks:</label>
       <input id="text-input" type="text" placeholder="add your task" required/>
       <select  name="priority-selector" id="priority-selector">
-        <option value=" ">--Select the level of significance of the task--</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option value=" ">--Select the level of significance of your task--</option>
+        <option value="(1)">1</option>
+        <option value="(2)">2</option>
+        <option value="(3)">3</option>
+        <option value="(4)">4</option>
+        <option value="(5)">5</option>
       </select>
-      <button id="add-button">ADD</button>
+      <button id="add-button">Add</button>
+      <button onclick="sortList()" id="sort-button">Sort</button>
     </section>
     <section id="View-section">
+      <h2>not completed</h2>
           <ul id="list">
-            <!-- <div class="todo-container"></div> -->
           </ul>
+
+          <!-- <h2>completed</h2> -->
+
     </section>
 
-    
     <script src="main.js"></script>
   </body>
 </html>

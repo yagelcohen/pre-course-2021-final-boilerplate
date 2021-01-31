@@ -10,6 +10,7 @@ function whichTaskToAddOrDeleteAndCountTask(){
     let significance =document.getElementById("priority-selector").value;
     const listItem = document.createElement("li");
     const buttonDelete = document.createElement('button');
+    buttonDelete.classList.add("buttonDelete");
     const todoContainer = document.createElement('div');
     todoContainer.classList.add("todo-container");
     const todoPriority = document.createElement('div');
@@ -24,7 +25,7 @@ function whichTaskToAddOrDeleteAndCountTask(){
     todoContainer.append(todoPriority);
     todoContainer.append(" ");
     todoContainer.append(todocreatedAt);
-    todoContainer.append(" ");
+    todoContainer.append(". ");
     todoContainer.append(todoText); 
     todoContainer.append(" ");
     input.value='';
@@ -32,7 +33,7 @@ function whichTaskToAddOrDeleteAndCountTask(){
     listItem.append(" " + " ")
     listItem.append(buttonDelete);
     list.append(listItem);
-    buttonDelete.innerText=' done! :)';
+    buttonDelete.innerText='x';
     countTasks++;
     document.getElementById('counter').innerHTML = countTasks;
     buttonDelete.onclick = function(e){
@@ -43,6 +44,9 @@ function whichTaskToAddOrDeleteAndCountTask(){
     input.focus();
  }
 
+ function completed(){
+   
+ }
 //to order the button that when we click on him do this function.
 addButton.addEventListener('click', whichTaskToAddOrDeleteAndCountTask);
 
@@ -67,8 +71,8 @@ function sortList (){
      console.log(listItem[i].innerText);
      console.log(listItem[i].value);
 
-      if (listItem[i].innerText[0] < listItem[i + 1].innerText[0]) {
-        console.log(listItem[i].innerHTML[0]);
+      if (listItem[i].innerText[1] < listItem[i + 1].innerText[1]) {
+        console.log(listItem[i].innerHTML[1]);
         shouldSwitch = true;
         break;
       }
