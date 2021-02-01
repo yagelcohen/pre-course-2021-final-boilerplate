@@ -15,8 +15,9 @@ function bigInArray(array){
 const addButton = document.getElementById('add-button');
 const sortButton = document.getElementById('sort-button');
 const ViewSection =  document.querySelector('section');
-const input = document.querySelector('input');
+input = document.getElementById('text-input');
 const list = document.querySelector('ul');
+SearchTask = document.getElementById('search');
 let countTasks = 0;
 let significance =document.getElementById("priority-selector").value;
 countData = 0;//-the key of the data
@@ -25,6 +26,13 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
 
 
  function whichTaskToAddOrDeleteAndCountTask(significance,date,Text,id){
+  //creat a checkbox Per line
+  let checkboxC = document.createElement('input');
+  checkboxC.type = "checkbox";
+  checkboxC.name = "name";
+  checkboxC.value = "value";
+  checkboxC.id = "id";
+  //creat the line in the list & divs & button with classnames
   const listItem = document.createElement("li");
   const buttonDelete = document.createElement('button');
   buttonDelete.classList.add("buttonDelete");
@@ -54,6 +62,7 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   listItem.append(" " + " ")
   buttonUpdate.innerText = "Update";
   listItem.append(buttonDelete);
+  listItem.append(checkboxC);
   listItem.append(buttonUpdate);
   listItem.setAttribute('id',id);
   list.append(listItem);
@@ -76,6 +85,16 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
     alert("Make sure you insert data");
     }
     }
+    checkboxC.onclick = function(e){
+  
+      if(checkboxC.checked === true){
+      todoText.style = "text-decoration:line-through;";
+      }
+      else{
+      todoText.style = "none;";
+      }
+      
+      }
   input.value='';
   input.focus();
  }
@@ -108,6 +127,26 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
     alert("Make sure you not missing data");
     }
     };
+
+    document.getElementById('search-button').onclick = function(){
+      let x=" ";
+      SearchItem = SearchTask.value;
+      div = document.getElementById('alert');
+      for(let i = 0 ; i <localStorage.length;i++){
+      let Data = localStorage.key(i);
+      Data = JSON.parse(localStorage.getItem(Data));
+      if(Data.Text === SearchItem){
+      x=("TaskName=>"+Data.Text+' '+'TaskDate =>'+Data.data+' '+ 'Significance =>' + Data.significance);
+      break;
+      }
+      else{
+      x=("don'tExists in the todoTask");
+      }
+      }   
+      alert(x);  
+      };
+
+
  //to order the input that when we keypress on the enter key do this function.
  if(significance !== "--Select the level of significance of your task--" && input.value!== ""){
   input.addEventListener('keypress',  (e) => {
