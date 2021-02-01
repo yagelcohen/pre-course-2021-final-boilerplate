@@ -36,6 +36,7 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   const listItem = document.createElement("li");
   const buttonDelete = document.createElement('button');
   buttonDelete.classList.add("buttonDelete");
+  checkboxC.classList.add("checkbox");
   buttonDelete.innerHTML = '<button class = "fa fa-trash fa-2x"></button>';
   const buttonUpdate = document.createElement('button');
   buttonUpdate.classList.add('button');

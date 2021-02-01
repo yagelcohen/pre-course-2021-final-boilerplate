@@ -149,16 +149,17 @@ div{
     border:none;
     color:rgb(0, 0, 0);  
 }
-#checkboxC{
+.checkbox{
 margin: 10px;
 border-radius: 5px;
 border: double #fbc531;
 color: cadetblue;
-
+float: left;
+position: relative;
+bottom: 5px;
 }
-#checkboxC:hover{
+.checkbox:hover{
     box-shadow: 0 0 10px #bd1616;
- 
 }
 label{
     font-size: 20px;
