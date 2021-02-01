@@ -34,4 +34,4 @@ ToDo list is a simple web application to save Your daily tasks in order.
 
 ## [this is my todo-List](https://yagelcohen.github.io/pre-course-2021-final-boilerplate/src/)
 
-![mytodo png](https://user-images.githubusercontent.com/77248177/106511576-16e94800-64d9-11eb-95db-8c05f8625883.png)
+![mytodo png](https://user-images.githubusercontent.com/77248177/106515529-7eee5d00-64de-11eb-855a-b6627c9cf33e.png)
