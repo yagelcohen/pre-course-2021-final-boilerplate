@@ -31,7 +31,7 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   checkboxC.type = "checkbox";
   checkboxC.name = "name";
   checkboxC.value = "value";
-  checkboxC.id = "id";
+  checkboxC.id = "checkboxC";
   //creat the line in the list & divs & button with classnames
   const listItem = document.createElement("li");
   const buttonDelete = document.createElement('button');
@@ -51,10 +51,11 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   const todoText = document.createElement('div');
   todoText.classList.add("todo-text");
   todoText.innerText =Text;
+  //append all the elements to li and in the end to ul(include button and divs).
   todoContainer.append(todoPriority);
   todoContainer.append(" ");
   todoContainer.append(todocreatedAt);
-  todoContainer.append(". ");
+  todoContainer.append(" ");
   todoContainer.append(todoText); 
   todoContainer.append(" ");
   input.value='';
@@ -66,14 +67,19 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   listItem.append(buttonUpdate);
   listItem.setAttribute('id',id);
   list.append(listItem);
+  //here is were the counts Happens.
   countTasks++;
   document.getElementById('counter').innerHTML = countTasks;
+  //A function that Happened at click of a button that call delete, and when the function running the tasks from the page
+  //  and form the local Storage delete. And the count is updated with each deletion.
   buttonDelete.onclick = function(e){
   localStorage.removeItem(listItem.getAttribute('id'));
   list.removeChild(listItem);
   countTasks--;
   document.getElementById('counter').innerHTML = countTasks;
   }
+  //A function that Happened at click of a button that call Update.
+  //And when the function is running it allows you to update the details of the task.
   buttonUpdate.onclick = function(e){
     if (input.value !== '' && Number(significance)){
     countTasks--;
@@ -85,20 +91,21 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
     alert("Make sure you insert data");
     }
     }
+//A function that Happened at click on a checkbox And she draws a line on the task To show that the task is complete.
     checkboxC.onclick = function(e){
-  
       if(checkboxC.checked === true){
       todoText.style = "text-decoration:line-through;";
       }
       else{
       todoText.style = "none;";
       }
-      
       }
   input.value='';
   input.focus();
  }
 
+
+  //function that add the information from the user to localStorage and to the TaskManger
  if (localStorage.length !== 0) {
   lengthKeys = keys.length;
   minkeys = keys.sort();
@@ -109,8 +116,7 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
   }
   countData = bigInArray(keys);
   }
-  //to order the button that when we click on him do this function.
-  //function that add the information from the user to localStorage and to the TaskManger
+  
   if(document.getElementById("priority-selector").value !== null){
     document.getElementById("add-button").onclick = function() {
     let significance =document.getElementById("priority-selector").value;
@@ -127,7 +133,7 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
     alert("Make sure you not missing data");
     }
     };
-
+//A function that Happened at click of a button that call search, And its action is to look for a task that exists. 
     document.getElementById('search-button').onclick = function(){
       let x=" ";
       SearchItem = SearchTask.value;
@@ -146,14 +152,6 @@ keys = Object.keys(localStorage);//-a array of the keys of the data
       alert(x);  
       };
 
-
- //to order the input that when we keypress on the enter key do this function.
- if(significance !== "--Select the level of significance of your task--" && input.value!== ""){
-  input.addEventListener('keypress',  (e) => {
-  if (e.key === 'Enter')
-  {whichTaskToAddOrDeleteAndCountTask()}
-  });
-  }
 //function that resort the todo list by their to dos priority 
 function sortList (){
     let i;

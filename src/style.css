@@ -1,5 +1,5 @@
     html, body {
-        margin: 0; height: 100%; overflow: hidden
+        margin: 0; height: 100%; 
     }
 
 body{
@@ -28,8 +28,9 @@ h4{
     font-size: 30px;
 }
 h4:hover{
-font-size: 35px;
+font-size: 31px;
 }
+
 #sort-button{
     background-color: #fbc531;
     font-size: 20px;
@@ -45,6 +46,13 @@ font-size: 35px;
     border-color: #487eb0;
     border-radius: 5px;
 
+}
+#search-button{
+    background-color: #fbc531;
+    font-size: 20px;
+    border:double;
+    border-color: #487eb0;
+    border-radius: 5px;
 }
 .buttonDelete{
     position: relative;
@@ -102,15 +110,20 @@ div{
 
 }
 .todo-priority{
-    font-size: 18px;
+    font-size: 20px;
+    padding-right: 20px;
 }
 .todo-created-at{
-    font-weight: 200;
+    font-weight: 400;
+    font-size: 16px;
+    padding-right:10px;
 }
 .todo-text{
-    font-weight: 300;
+    font-weight: 400;
     font-size: 20px;
     color: rgb(0, 0, 0);
+    padding-right:10px;
+
 }
 .todo-container{
     box-sizing: border-box;
@@ -134,7 +147,35 @@ div{
 .fa{
     background-color: transparent;
     border:none;
-    color:rgb(0, 0, 0);
-    
+    color:rgb(0, 0, 0);  
 }
+#checkboxC{
+margin: 10px;
+border-radius: 5px;
+border: double #fbc531;
+color: cadetblue;
 
+}
+#checkboxC:hover{
+    box-shadow: 0 0 10px #bd1616;
+ 
+}
+label{
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#search{
+    border: none;
+    border-bottom: 2px solid #000;
+    background: none;
+    padding: 10px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 300;
+    border-radius: 7px;
+}
+#search:hover{
+    box-shadow: 0 0 20px #fbc531;
+}
