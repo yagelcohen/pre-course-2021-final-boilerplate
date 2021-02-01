@@ -22,6 +22,7 @@ ToDo list is a simple web application to save Your daily tasks in order.
 * Delete single task
 * A search button that can search for the existing task
 * A button that sorts the tasks in order of importance (five is the highest to one which is the smallest)
+* The information is saved in the localStorage To use it later even if you refresh the page.
 
 ## Links I used
 * [sort](https://techfunda.com/howto/920/sort-array)
