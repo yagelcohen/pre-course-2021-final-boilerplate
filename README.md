@@ -14,15 +14,17 @@ The application was created using three programming languages:
 ToDo list is a simple web application to save Your daily tasks in order.
 
 ### Features
-* Pick a date
-* Add new task
-* Mark task as completed / uncompleted By line on the taskץ
-* Set task priority
-* Edit task
-* Delete single task
-* A search button that can search for the existing task
-* A button that sorts the tasks in order of importance (five is the highest to one which is the smallest)
+* Pick a date.
+* Add new task.
+* Mark task as completed / uncompleted By line on the task.
+* Set task priorityץ
+* Edit taskץ
+* Delete single taskץ
+* A search button that can search for the existing taskץ
+* A button that sorts the tasks in order of importance (five is the highest to one which is the smallest)ץ
 * The information is saved in the localStorage To use it later even if you refresh the page.
+* Does not allow you to create a new task if you have not filled all the information, Then sends an alert to notify the userץ
+
 
 ## Links I used
 * [sort](https://techfunda.com/howto/920/sort-array)
